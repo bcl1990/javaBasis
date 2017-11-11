@@ -1,0 +1,9 @@
+1.String为什么不能改变
+	1)String类的private final char value[];维护着String,由于是private所以外界不能
+	访问这个数组，所以正常不能改变String，但是可以通过反射改变value[]里的值来改变String。
+	2)并不是因为String是final修饰的才不可变，final是为了防止继承，对类破坏
+2.为什么要设计成不可变
+	1)字符常量池的实现，很多引用指向同一个String对象，如果变了会出问题。
+	2)作为参数传递的时候，如果可以改变，方法里会改变参数的值。
+	3)缓存hashCode，String有个变量hash存储hashCode，不用每次去计算hashCode提升效率。
+	4)多线程的安全性，只能多不能写保证了数据安全
