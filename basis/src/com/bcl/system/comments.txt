@@ -1,0 +1,2 @@
+1.System.arraycopy System.arraycopy(ori, oriBegin, dst, dstBegin, length);
+从原数组oriBegin位置，拷贝length个字符到目标字符数组，从目标数组dstBegin位置开始

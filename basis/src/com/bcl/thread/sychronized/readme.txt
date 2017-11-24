@@ -1,0 +1,1 @@
+A1:synchronized 是锁代码还是锁对象

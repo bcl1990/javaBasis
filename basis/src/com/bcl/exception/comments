@@ -1,0 +1,2 @@
+1.Exception和Error继承Throwable RunTimeException继承Exception
+2.运行时异常和编译时异常:继承RuntimeException的不需要tyr catch 其他的都需要try catch

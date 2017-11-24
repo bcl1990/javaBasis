@@ -1,0 +1,26 @@
+1.ArrayList
+	1)扩容  if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {//DEFAULTCAPACITY_EMPTY_ELEMENTDATA=10
+            minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
+        }
+	int newCapacity = oldCapacity + (oldCapacity >> 1); 扩为1.5倍
+	  if (newCapacity - minCapacity < 0)
+            newCapacity = minCapacity;  //如果最小容量比1.5倍原容量大就扩为最小容量，最小容量指原来的元素个数加新加的个数
+        if (newCapacity - MAX_ARRAY_SIZE > 0)
+            newCapacity = hugeCapacity(minCapacity);
+2.HashMap
+	1)初始length 16
+	2)负载因子0。75
+	3)每次扩容为2倍
+	4)hash冲突,先比较hash值，再比较eruals
+	5)hash冲突时放入链表，放在链表头
+	6)计算index  hash&(length-1)
+3.HashMap 1.7 1.8区别
+	1)hash冲突时1.8链表长度超过8就会转为红黑树
+	2)扩容resize时，1.7重新计算hash值去分配新的位置，1.8不会if ((e.hash & oldCap) == 0)
+		因为原来计算hash的时候是hash & (oldCap-1),比如原来length是4就是100,hash & (oldCap-1)就是hash和11做&运算，
+		现在扩为2倍length变为8就是1000，计算hash就是和111做&运算，比没扩容时只是高位多了一个和1做&运算的。
+		hash-->         1010111                hash-->         1010111
+		原length-1-->         11                                              现length-1-->        111
+		所以只要确定多出来的这个是0还是1，如果是0就算的index还是原来的值，如果是1，index就等于原来的index+就的length，所以不需要重新
+		计算hash，效率跟高
+           
