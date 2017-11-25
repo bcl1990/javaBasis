@@ -5,7 +5,7 @@ import java.util.Iterator;
  * 
  * @author bcl
  * 集合为什么要实现Iterable()，而不是实现iterator()，因为实现iterator()只能有一个迭代位置，
- * 而Iterable()每次迭代都可以从开始迭代
+ * 而Iterable()每次迭代都可以从开始迭 代
  * 
  */
 public class A1_MyArrayList<T> implements Iterable<T> {
